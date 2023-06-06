@@ -84,6 +84,7 @@ def assigning_book(id : int, new_data : Assiging_book, db: Session = Depends(get
         raise HTTPException(status_code=status.HTTP_204_NO_CONTENT)
     data.update(new_data.dict(),synchronize_session=False)
     db.commit()
+    print("the book status changed")
     return {"message": new_data}
 
 
